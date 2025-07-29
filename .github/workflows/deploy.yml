@@ -17,6 +17,6 @@ jobs:
                   password: ${{secrets.DOCKERHUB_TOKEN}}
             - name: Pull and and push to docker Hub
               working-directory: ./bisi
-              run: 
+              run: |
                 docker build -t ${{vars.DOCKER_USERNAME}}/ndubuisi .
                 docker push ${{vars.DOCKER_USERNAME}}/ndubuisi
