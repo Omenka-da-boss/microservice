@@ -5,8 +5,18 @@ on:
     branches: ["main"]
 
 jobs:
-    greet:
+    build:
         runs-on: ubuntu-latest
         steps:
-            - name: echo "Hello My Gee"
-              run: echo "Hello Pusher"
+            - name: Copy name to machine
+              uses: actions/checkout@v4
+            - name: Logining In to Docker Hub
+              uses: docker/login-actions@v3
+              with:
+                  username: ${{vars.DOCKER_USERNAME}}
+                  password: ${{secrets.DOCKER_TOKEN}}
+            - name: Pull and and push to docker Hub
+              working-directory: ./bisi
+              run: 
+                docker build -t ${{vars.DOCKER_USERNAME}}/ndubuisi .
+                docker push ${{vars.DOCKER_USERNAME}}/ndubuisi
