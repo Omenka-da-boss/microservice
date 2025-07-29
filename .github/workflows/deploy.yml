@@ -1,0 +1,12 @@
+name: First CICD Pipeline
+
+on:
+   push:
+    branches: ["main"]
+
+jobs:
+    greet:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo "Hello My Gee"
+              run: echo "Hello Pusher"
