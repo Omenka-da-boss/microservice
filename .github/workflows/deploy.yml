@@ -11,7 +11,7 @@ jobs:
             - name: Copy name to machine
               uses: actions/checkout@v4
             - name: Logining In to Docker Hub
-              uses: docker/login-actions@v3
+              uses: docker/login-action@v3
               with:
                   username: ${{vars.DOCKER_USERNAME}}
                   password: ${{secrets.DOCKER_TOKEN}}
