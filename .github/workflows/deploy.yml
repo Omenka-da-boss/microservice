@@ -34,4 +34,4 @@ jobs:
                 script: |
                   sudo docker pull ${{vars.DOCKER_USERNAME}}/ndubuis1
                   sudo docker rm -f ndubuisi
-                  sudo docker run -d --name ndubuisi ${{vars.DOCKER_USERNAME}}/ndubuisi
+                  sudo docker run -d --name ndubuisi -p 3000:3000 ${{vars.DOCKER_USERNAME}}/ndubuisi
