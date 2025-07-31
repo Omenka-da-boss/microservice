@@ -20,3 +20,17 @@ jobs:
               run: |
                 docker build -t ${{vars.DOCKER_USERNAME}}/ndubuisi .
                 docker push ${{vars.DOCKER_USERNAME}}/ndubuisi
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy our server
+              uses: appleboy/ssh-action@master
+              with:
+                host: ${{secrets.EC2_HOST_SERVER}}
+                username: ${{secrets.EC2_USERNAME}}
+                key: ${{secrets.EC2_PRIVATE_KEY}}
+                script: |
+                  sudo docker pull ${{vars.DOCKER_USERNAME}}/ndubuisi
+                  sudo docker rm -f wow
+                  sudo docker run -d --name ndubuisi ${{vars.DOCKER_USERNAME}}/ndubuisi
