@@ -33,5 +33,5 @@ jobs:
                 key: ${{secrets.EC2_PRIVATE_KEY}}
                 script: |
                   sudo docker pull ${{vars.DOCKER_USERNAME}}/ndubuis1
-                  sudo docker rm -f wow
+                  sudo docker rm -f ndubuisi
                   sudo docker run -d --name ndubuisi ${{vars.DOCKER_USERNAME}}/ndubuisi
