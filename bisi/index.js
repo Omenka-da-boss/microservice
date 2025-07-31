@@ -20,7 +20,7 @@ app.get('/api/products',(req,res)=>{
 app.get("/api/products/:id",(req,res)=>{
         const products = [
         {id:1,name:'Laptop',price:2000},
-        {id:2,name:'Desktop',price:2500},
+        {id:2,name:'Desktop',price:400},
         {id:3,name:'Phone',price:90000},
         {id:4,name:'Tv',price:3000},
     ]
